@@ -1,86 +1,89 @@
-# 🌊 Flood Risk Prediction
+# 💳 Loan Approval Prediction
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+## 📋 Описание проекта
 
-## 📋 Project Overview
+**Задача:** Предсказать вероятность одобрения кредитной заявки на основе характеристик клиента.
 
-Machine Learning project for predicting flood probability based on 20 risk factors using regression models.
+**Тип задачи:** Бинарная классификация  
+**Целевая переменная:** `loan_status` (0 = отказ, 1 = одобрение)  
+**Метрика:** AUC-ROC
 
-- **Task Type:** Regression  
-- **Target Variable:** FloodProbability (0.0 - 1.0)  
-- **Features:** 20 risk factors (scale 1-10)
-- **Evaluation Metrics:** RMSE, MAE, R²
+## 📊 Данные
 
-## 🎯 Business Goal
+### Признаки клиента:
+- **person_age** - возраст заявителя
+- **person_income** - годовой доход
+- **person_home_ownership** - тип владения жильем (RENT, OWN, MORTGAGE, OTHER)
+- **person_emp_length** - стаж работы (в годах)
 
-Develop a model to predict flood risk probability to help:
-- Emergency services prepare resources
-- Urban planners identify high-risk areas  
-- Insurance companies assess risks
-- Government agencies allocate prevention budgets
+### Параметры кредита:
+- **loan_intent** - цель кредита (EDUCATION, MEDICAL, PERSONAL, VENTURE, HOMEIMPROVEMENT, DEBTCONSOLIDATION)
+- **loan_grade** - грейд кредита (A, B, C, D, E, F, G)
+- **loan_amnt** - сумма кредита
+- **loan_int_rate** - процентная ставка
+- **loan_percent_income** - отношение платежа к доходу
 
-## 📊 Dataset
+### Кредитная история:
+- **cb_person_default_on_file** - был ли дефолт ранее (Y/N)
+- **cb_person_cred_hist_length** - длина кредитной истории (лет)
 
-- **Training set:** Unknown size (will update after EDA)
-- **Test set:** Unknown size (will update after EDA)
-- **Features:** 20 numerical features representing various risk factors
+## 🎯 Цели проекта
 
-## 🚀 Quick Start
+1. Построить модель предсказания одобрения кредита
+2. Выявить ключевые факторы одобрения
+3. Достичь AUC-ROC > 0.85
+4. Создать интерпретируемые рекомендации для банка
+
+## 🛠️ Технологии
+
+- Python 3.13
+- Pandas, NumPy - обработка данных
+- Scikit-learn - машинное обучение
+- Matplotlib, Seaborn - визуализация
+- XGBoost, LightGBM - градиентный бустинг
+
+## 📁 Структура проекта
+```
+loan-approval-prediction/
+├── data/
+│   ├── raw/           # Исходные данные
+│   ├── processed/     # Обработанные данные
+│   └── submissions/   # Файлы для отправки
+├── src/
+│   ├── 01_eda/       # Исследовательский анализ
+│   ├── 02_preprocessing/  # Подготовка данных
+│   ├── 03_modeling/       # Обучение моделей
+│   └── 04_evaluation/     # Оценка результатов
+├── results/
+│   ├── figures/      # Графики
+│   └── tables/       # Таблицы
+└── models/           # Сохраненные модели
+```
+
+## 🚀 Быстрый старт
 ```bash
-# 1. Clone repository
-git clone https://github.com/IvanMMMLich/flood-risk-prediction.git
-cd flood-risk-prediction
+# Клонировать репозиторий
+git clone https://github.com/IvanMMMLich/loan-approval-prediction.git
 
-# 2. Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# 3. Install dependencies
+# Установить зависимости
 pip install -r requirements.txt
 
-# 4. Add data files to data/raw/
-# Download train.csv, test.csv, sample_submission.csv
-
-# 5. Run analysis (coming soon)
-python scripts/run_eda.py
+# Запустить анализ
+python src/01_eda/step1_first_look.py
 ```
 
-## 📁 Project Structure
-```
-flood-risk-prediction/
-├── data/              # Data files (not tracked in Git)
-├── notebooks/         # Jupyter notebooks
-├── src/               # Source code
-│   ├── 01_eda/       # Exploratory Data Analysis
-│   ├── 02_preprocessing/  # Feature Engineering
-│   ├── 03_modeling/   # Model Training
-│   └── 04_evaluation/ # Model Evaluation
-├── models/            # Saved models
-└── results/           # Outputs and reports
-```
+## 📈 Текущий прогресс
 
-## 🔬 Methodology
-
-1. **EDA** - Understanding data patterns
-2. **Feature Engineering** - Creating risk indices
-3. **Modeling** - Testing multiple regression algorithms
-4. **Evaluation** - Cross-validation and metrics analysis
-
-## 📈 Current Status
-
-- [x] Repository setup
-- [ ] Data loading
-- [ ] EDA
-- [ ] Feature Engineering  
+- [ ] EDA - исследовательский анализ
+- [ ] Feature Engineering
 - [ ] Model Training
-- [ ] Submission
+- [ ] Model Evaluation
+- [ ] Final Submission
 
-## 👤 Author
+## 👤 Автор
 
-**Ivan Sytsev**
-- GitHub: [@IvanMMMLich](https://github.com/IvanMMMLich)
+Ivan Sytsev
 
-## 📝 License
+## 📝 Лицензия
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License
