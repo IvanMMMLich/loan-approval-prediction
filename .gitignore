@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Data files (слишком большие для Git)
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.pkl
+data/submissions/*.csv
+!data/*/.gitkeep
+
+# Models
+models/*.pkl
+models/*.joblib
+models/*.h5
+!models/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environments
+.env
