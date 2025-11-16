@@ -1,0 +1,29 @@
+BASELINE MODEL METRICS
+==================================================
+Date: 2025-11-15 18:07:22.552600
+Model: LogisticRegression
+Features: 11
+Train size: 46916
+Val size: 11729
+
+PERFORMANCE:
+ROC-AUC: 0.8740
+
+              precision    recall  f1-score   support
+
+    Rejected       0.96      0.78      0.86     10059
+    Approved       0.38      0.81      0.52      1670
+
+    accuracy                           0.79     11729
+   macro avg       0.67      0.80      0.69     11729
+weighted avg       0.88      0.79      0.81     11729
+
+CONFUSION MATRIX:
+TN:  7886  FP:  2173
+FN:   321  TP:  1349
+
+NOTES:
+- No data cleaning (123 values kept)
+- No feature engineering
+- No scaling
+- Only label encoding for categorical
